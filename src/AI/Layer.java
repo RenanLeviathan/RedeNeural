@@ -23,8 +23,8 @@ public class Layer {
      * @param n - Neurônio
      * @return v[j]
      */
-    public double v(@NotNull Neuronio n){
-        double v = 0;
+    public int v(@NotNull Neuronio n){
+        int v = 0;
         for(int i=0;i<n.X().length;i++){
             v += n.X()[i]*n.W()[i];
         }
@@ -36,12 +36,16 @@ public class Layer {
      * @param v - o v calculado com as entradas
      * @return fi
      */
-    public double fi(double v){
-        return 1/(1+Math.exp(-v));
+    public int fi(int v){
+        return (int) ((int) 1/(1+Math.exp(-v)));
     }
 
-    public ArrayList<Double> sinais(){
-        ArrayList<Double> s = new ArrayList<>();
+    /**
+     * Sinais de saída da camada
+     * @return conjunto de sinais
+     */
+    public ArrayList<Integer> sinais(){
+        ArrayList<Integer> s = new ArrayList<>();
         L.forEach(x -> s.add(v(x)));
         return s;
     }

@@ -2,7 +2,7 @@ package AI;
 
 public class Neuronio {
     private int x1, x2;
-    private double w1, w2; //peso do neurônio
+    private int w1, w2; //peso do neurônio
 
     public Neuronio(int x1, int x2){
         this.x1=x1;
@@ -23,7 +23,7 @@ public class Neuronio {
      * @param w1 - peso da entrada x1
      * @param w2 - peso da entrada x2
      */
-    public void W(double w1, double w2){
+    public void W(int w1, int w2){
         this.w1 = w1;
         this.w2 = w2;
     }
@@ -40,7 +40,7 @@ public class Neuronio {
      * Retorna os pesos de cada entrada
      * @return w[w1..wn]
      */
-   public double[] W(){
-       return new double[]{w1, w2};
+   public int[] W(){
+       return new int[]{w1, w2};
    }
 }
