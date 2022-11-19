@@ -17,7 +17,7 @@ public class NNetwork {
         entrada.inserirNeuronio(o);
         //Adiciona neurônios da camada oculta
         for(int i=0;i<2;i++){
-            oculta.inserirNeuronio(new Neuronio(entrada.sinais().get(0),entrada.sinais().get(1)));
+            oculta.inserirNeuronio(new Neuronio(entrada.state().get(0).sinal(),entrada.state().get(1).sinal()));
         }
     }
 }

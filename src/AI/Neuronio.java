@@ -1,5 +1,9 @@
 package AI;
 
+import org.jetbrains.annotations.NotNull;
+
+import java.util.ArrayList;
+
 public class Neuronio {
     private int x1, x2;
     private int w1, w2; //peso do neurônio
@@ -37,10 +41,39 @@ public class Neuronio {
    }
 
     /**
+     * Função que calcula o v, que considera os pesos das entradas
+     * @return v[j]
+     */
+    public int v(){
+        int v = 0;
+        for(int i=0;i<X().length;i++){
+            v += X()[i]*W()[i];
+        }
+        return v;
+    }
+
+    /**
+     * Função fi (geralmente sigmoide)
+     * @param v - o v calculado com as entradas
+     * @return fi
+     */
+    public int fi(int v){
+        return (int) ((int) 1/(1+Math.exp(-v)));
+    }
+
+    /**
      * Retorna os pesos de cada entrada
      * @return w[w1..wn]
      */
    public int[] W(){
        return new int[]{w1, w2};
    }
+
+    /**
+     * Sinais de saída da camada
+     * @return conjunto de sinais
+     */
+    public int sinal(){
+        return fi(v());
+    }
 }
